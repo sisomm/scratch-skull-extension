@@ -1,4 +1,19 @@
 (function(ext) {
+ 
+    //load MQTT library
+
+  function loadMQTT() {
+    $.getScript('mqttws31.js')
+      .done(function(script, textStatus) {
+        console.log('Loaded MQTT');
+      })
+      .fail(function(jqxhr, settings, exception) {
+        console.log('Error loading MQTT');
+    });
+  }
+   
+
+
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -37,4 +52,5 @@
 
     // Register the extension
     ScratchExtensions.register('Keith Richards', descriptor, ext);
+    loadMQTT();
 })({});
