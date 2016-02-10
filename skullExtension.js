@@ -22,7 +22,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Blink Eyes', 'wait_random'],
+            ['w', 'Blink E yes', 'wait_random'],
             ['w', 'Open Mouth', 'wait_random'],
             ['w', 'Close Mouth', 'wait_random'],
             ['w', 'Move Head to %n,%n', 'wait_random',2],
