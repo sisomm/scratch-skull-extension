@@ -27,8 +27,9 @@
     ext.blink_eyes = function() {
         console.log("blink");
         message = new Messaging.Message("BLINK,9");
-        message.destinationName = "/arduino/1/incoming";
+        message.destinationName = "arduino/1/incoming";
         client.send(message);
+        console.log("I blank");
 
     };
 
