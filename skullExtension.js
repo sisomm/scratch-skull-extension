@@ -30,7 +30,7 @@
             ['w', 'Right Eye %m.onOff', 'wait_random'],
         ], 
         menus: {
-            mopenClose:['Open','Close'],
+            openClose:['Open','Close'],
             onOff:['On','Off']
         }
     };
