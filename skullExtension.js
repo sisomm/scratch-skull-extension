@@ -25,7 +25,7 @@
             ['w', 'Blink E yes', 'wait_random'],
             ['w', 'Open Mouth', 'wait_random'],
             ['w', 'Close Mouth', 'wait_random'],
-            ['w', 'Move Head to %n,%n', 'wait_random',2],
+            ['w', 'Move Head to %n,%n', 'wait_random',300,300],
             ['w', 'Talk', 'wait_random'],
             ['w', 'Left Eye', 'wait_random'],
             ['w', 'Right Eye', 'wait_random'],
