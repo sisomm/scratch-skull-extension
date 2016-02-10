@@ -23,7 +23,7 @@
         return {status: 2, msg: 'Ready'};
     };
 
-
+/*
     ext.blink_eyes = function() {
         console.log("blink");
         message = new Messaging.Message("BLINK,9");
@@ -32,7 +32,7 @@
         console.log("I blank");
 
     };
-
+*/
 
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
@@ -48,7 +48,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Blink Eyes', 'blink_eyes'],
+            [' ', 'Blink Eyes', 'wait_random'],
             ['w', 'Mouth %m.openClose', 'wait_random'],
             ['w', 'Move Head to %n,%n', 'wait_random',300,300],
             ['w', 'Talk %n times', 'wait_random',5],
@@ -83,12 +83,12 @@
       onSuccess: function () {
         console.log("mqtt connected");
         // Connection succeeded; subscribe to our topic, you can add multile lines of these
-        //client.subscribe("arduino/1/incoming", {qos: 1});
+        client.subscribe("arduino/1/incoming", {qos: 1});
     
         //use the below if you want to publish to a topic on connect
-        //message = new Messaging.Message("Hello");
-        //message.destinationName = "arduino/1/incoming";
-        //client.send(message);
+        message = new Messaging.Message("Hello");
+        message.destinationName = "arduino/1/incoming";
+        client.send(message);
   
       },
       onFailure: function (message) {
