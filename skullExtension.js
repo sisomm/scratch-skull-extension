@@ -75,7 +75,7 @@
         client.subscribe('/World', {qos: 1});
     
         //use the below if you want to publish to a topic on connect
-        message = new Paho.MQTT.Message("Hello");
+        message = new Messaging.Message("Hello");
         message.destinationName = "/World";
         client.send(message);
   
