@@ -3,7 +3,7 @@
     //load MQTT library
 
   function loadMQTT() {
-    $.getScript('mqttws31.js')
+    $.getScript('http://sisomm.github.io/scratch-skull-extension/mqttws31.js')
       .done(function(script, textStatus) {
         console.log('Loaded MQTT');
       })
