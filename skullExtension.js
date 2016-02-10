@@ -24,7 +24,7 @@
     };
 
 
-    ext.blink = function() {
+    ext.blink_eyes = function() {
         console.log("blink");
         message = new Messaging.Message("BLINK,9");
         message.destinationName = "/arduino/1/incoming";
@@ -47,7 +47,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Blink Eyes', 'blink'],
+            [' ', 'Blink Eyes', 'blink_eyes'],
             ['w', 'Mouth %m.openClose', 'wait_random'],
             ['w', 'Move Head to %n,%n', 'wait_random',300,300],
             ['w', 'Talk %n times', 'wait_random',5],
