@@ -83,12 +83,12 @@
       onSuccess: function () {
         console.log("mqtt connected");
         // Connection succeeded; subscribe to our topic, you can add multile lines of these
-        client.subscribe("arduino/1/incoming", {qos: 1});
+        //client.subscribe("arduino/1/incoming", {qos: 1});
     
         //use the below if you want to publish to a topic on connect
-        message = new Messaging.Message("Hello");
-        message.destinationName = "arduino/1/incoming";
-        client.send(message);
+        //message = new Messaging.Message("Hello");
+        //message.destinationName = "arduino/1/incoming";
+        //client.send(message);
   
       },
       onFailure: function (message) {
