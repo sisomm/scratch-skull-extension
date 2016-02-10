@@ -22,14 +22,13 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['w', 'Blink E yes', 'wait_random'],
+            ['w', 'Blink Eyes', 'wait_random'],
             ['w', 'Open Mouth', 'wait_random'],
             ['w', 'Close Mouth', 'wait_random'],
-            ['w', 'Move Head to %n,%n', 'wait_random',300,300],
+            ['w', 'Move Head to %n,%n', 'wait_random'],
             ['w', 'Talk', 'wait_random'],
             ['w', 'Left Eye', 'wait_random'],
             ['w', 'Right Eye', 'wait_random'],
-            ['w', 'Talk', 'wait_random'],
         ]
     };
 
