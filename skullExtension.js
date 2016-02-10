@@ -25,9 +25,11 @@
 
 
     ext.blink = function() {
+        console.log("blink");
         message = new Messaging.Message("BLINK,9");
         message.destinationName = "/arduino/1/incoming";
         client.send(message);
+
     };
 
 
