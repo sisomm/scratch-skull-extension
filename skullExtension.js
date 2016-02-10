@@ -23,13 +23,16 @@
     var descriptor = {
         blocks: [
             ['w', 'Blink Eyes', 'wait_random'],
-            ['w', 'Open Mouth', 'wait_random'],
-            ['w', 'Close Mouth', 'wait_random'],
-            ['w', 'Move Head to %n,%n', 'wait_random'],
-            ['w', 'Talk', 'wait_random'],
-            ['w', 'Left Eye', 'wait_random'],
-            ['w', 'Right Eye', 'wait_random'],
-        ]
+            ['w', 'Mouth m.openClose', 'wait_random'],
+            ['w', 'Move Head to %n,%n', 'wait_random',300,300],
+            ['w', 'Talk %n times', 'wait_random',5],
+            ['w', 'Left Eye %m.onOff', 'wait_random'],
+            ['w', 'Right Eye %m.onOff', 'wait_random'],
+        ], 
+        menus: {
+            openClose:['Open','Close'],
+            onOff:['On','Off']
+        }
     };
 
     // Register the extension
