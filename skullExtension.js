@@ -86,7 +86,7 @@
     
         //use the below if you want to publish to a topic on connect
         message = new Messaging.Message("Hello");
-        message.destinationName = "/World";
+        message.destinationName = "arduino/1/incoming";
         client.send(message);
   
       },
