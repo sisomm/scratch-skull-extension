@@ -23,7 +23,7 @@
         return {status: 2, msg: 'Ready'};
     };
 
-    ext.blink_eyes = function() {
+/*    ext.blink_eyes = function() {
         console.log("blink");
         message = new Messaging.Message("BLINK,9");
         message.destinationName = "/arduino/1/incoming";
@@ -31,11 +31,17 @@
         console.log("I blank");
 
     };
-
+*/
     // Functions for block with type 'w' will get a callback function as the 
     // final argument. This should be called to indicate that the block can
     // stop waiting.
     ext.wait_random = function(callback) {
+      console.log("blink");
+        message = new Messaging.Message("BLINK,9");
+        message.destinationName = "/arduino/1/incoming";
+        client.send(message);
+        console.log("I blank");
+
         wait = Math.random();
         console.log('Waiting for ' + wait + ' seconds');
         window.setTimeout(function() {
@@ -46,7 +52,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Blink Eyes', 'blink_eyes'],
+            [' ', 'Blink Eyes', 'wait_random'],
             ['w', 'Mouth %m.openClose', 'wait_random'],
             ['w', 'Move Head to %n,%n', 'wait_random',300,300],
             ['w', 'Talk %n times', 'wait_random',5],
