@@ -35,6 +35,15 @@
 
     }
 
+        ext.send_mqtt = function(msg,topic) {
+        console.log("send"+topic+":"+msg);
+        message = new Paho.MQTT.Message(msg);
+        message.destinationName = topic;
+        client.send(message);
+        console.log("I blank");
+
+    }
+
     ext.wait_random = function(callback) {
         wait = Math.random();
         console.log('Waiting for ' + wait + ' seconds');
