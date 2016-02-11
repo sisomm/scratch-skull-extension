@@ -29,14 +29,16 @@
     ext.blink_eyes = function() {
         var message = new Paho.MQTT.Message('BLINK,9');
         message.destinationName = mqqtDefaultTopic;
-        client.send(message);
+        //client.send(message);
+        client.send(mqqtDefaultTopic;'BLINK,9');
     }
 
     ext.send_mqtt = function(topic,msg) {
         console.log("send"+topic+":"+msg);
         var message = new Paho.MQTT.Message(msg);
         message.destinationName = topic;
-        client.send(message);
+        //client.send(message);
+        client.send(topic,msg);
     }
 
 
