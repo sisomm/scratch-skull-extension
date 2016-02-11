@@ -11,6 +11,25 @@
         console.log('Error loading MQTT');
     });
   }
+
+  function sendHTTP (url,postData){
+
+        var method = "POST";
+        var async = true;
+
+        var request = new XMLHttpRequest();
+
+        request.onload = function () {
+           var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
+           var data = request.responseText; // Returned data, e.g., an HTML document.
+        }
+
+        request.open(method, url, async);
+
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(postData);
+  }
+
    
 
     // Cleanup function when the extension is unloaded
@@ -30,7 +49,7 @@
         var message = new Paho.MQTT.Message('BLINK,9');
         message.destinationName = mqqtDefaultTopic;
         //client.send(message);
-        client.send(mqqtDefaultTopic,'BLINK,9');
+        sendHTTP('192.168.1.35:1880','BLINK,9');
     }
 
     ext.send_mqtt = function(topic,msg) {
