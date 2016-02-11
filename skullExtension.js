@@ -84,6 +84,7 @@
     
     client.onConnectionLost = function (responseObject) {
         console.log("connection lost: " + responseObject.errorMessage);
+        setTimeout(client.connect(),100);
     };
     
     client.onMessageArrived = function (message) {
