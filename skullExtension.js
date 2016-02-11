@@ -13,7 +13,6 @@
   }
    
 
-
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -75,7 +74,7 @@
         client.subscribe("/arduino/1/incoming", {qos: 1});
     
         //use the below if you want to publish to a topic on connect
-        message = new Messaging.Message("Hello");
+        message = new Messaging.Message();
         message.destinationName = "/arduino/1/incoming";
         client.send(message);
   
