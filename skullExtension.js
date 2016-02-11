@@ -47,11 +47,19 @@
     }
 
 
+    ext.mouth = function(position){
+        var cmd =0;
+        if(position=="Open") {
+            cmd=1;
+        }
+        if(client.isConnected()) client.send(mqqtDefaultTopic,'JAW_POSITION,'+cmd);
+    }
+
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             [' ', 'Blink Eyes %n', 'blink_eyes',1],
-            [' ', 'Mouth %m.openClose', 'wait_random'],
+            [' ', '%m.openClose Mouth', 'mouth'],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
