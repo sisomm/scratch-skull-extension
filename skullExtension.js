@@ -25,8 +25,8 @@
     // final argument. This should be called to indicate that the block can
     // stop waiting.
 
-    ext.blink_eyes = function() {
-        if(client.isConnected()) client.send(mqqtDefaultTopic,'BLINK,9');
+    ext.blink_eyes = function(times) {
+        if(client.isConnected()) client.send(mqqtDefaultTopic,'BLINK,'+times);
     }
 
     ext.talk = function(times) {
@@ -37,12 +37,6 @@
     ext.send_mqtt = function(topic,msg) {
          if(client.isConnected()) client.send(topic,msg);
     }
-
-    ext.connect = function(){
-        if(!client.isConnected()){
-            client.connect();
-        }
-    }    
 
     ext.isConnected = function(){
         if(client.isConnected()){
@@ -56,13 +50,12 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Blink Eyes', 'blink_eyes'],
+            [' ', 'Blink Eyes %n', 'blink_eyes',1],
             [' ', 'Mouth %m.openClose', 'wait_random'],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
-            [' ', 'Connect','connect'],
             ['r', 'Connected','isConnected'],
         ], 
         menus: {
