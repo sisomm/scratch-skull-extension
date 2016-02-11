@@ -30,7 +30,7 @@
         var message = new Paho.MQTT.Message('BLINK,9');
         message.destinationName = mqqtDefaultTopic;
         //client.send(message);
-        client.send(mqqtDefaultTopic;'BLINK,9');
+        client.send(mqqtDefaultTopic,'BLINK,9');
     }
 
     ext.send_mqtt = function(topic,msg) {
