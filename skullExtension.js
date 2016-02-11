@@ -27,7 +27,7 @@
     // stop waiting.
 
     ext.blink_eyes = function() {
-        var message = new Paho.MQTT.Message("BLINK,9");
+        var message = new Paho.MQTT.Message('BLINK,9');
         message.destinationName = mqqtDefaultTopic;
         client.send(message);
     }
