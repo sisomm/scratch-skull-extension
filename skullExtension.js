@@ -59,7 +59,7 @@
     var descriptor = {
         blocks: [
             [' ', 'Blink Eyes %n', 'blink_eyes',1],
-            [' ', '%m.openClose Mouth', 'mouth'],
+            [' ', '%m.openClose Mouth', 'mouth',0],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
