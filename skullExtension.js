@@ -26,20 +26,26 @@
     // stop waiting.
 
     ext.blink_eyes = function() {
-        client.send(mqqtDefaultTopic,'BLINK,9');
+        if(client.isConnected()) client.send(mqqtDefaultTopic,'BLINK,9');
     }
 
     ext.talk = function(times) {
-        client.send(mqqtDefaultTopic,'JAW_MOTION,'+times+',1');
+         if(client.isConnected()) client.send(mqqtDefaultTopic,'JAW_MOTION,'+times+',1');
     }
 
 
     ext.send_mqtt = function(topic,msg) {
-        client.send(topic,msg);
+         if(client.isConnected()) client.send(topic,msg);
     }
 
-    ext.isConnected=function(){
-        if(client.isConnected){
+    ext.connect = function(){
+        if(!client.isConnected()){
+            client.connect();
+        }
+    }    
+
+    ext.isConnected = function(){
+        if(client.isConnected()){
             return 1;
         } else {
             return 0;
@@ -56,6 +62,7 @@
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
+            [' ', 'Connect','connect'],
             ['R', 'Connected','isConnected'],
         ], 
         menus: {
