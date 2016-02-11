@@ -63,7 +63,7 @@
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
             [' ', 'Connect','connect'],
-            ['R', 'Connected','isConnected'],
+            ['r', 'Connected','isConnected'],
         ], 
         menus: {
             openClose:['Open','Close'],
