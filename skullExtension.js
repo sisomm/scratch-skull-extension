@@ -25,8 +25,8 @@
     // final argument. This should be called to indicate that the block can
     // stop waiting.
 
-    ext.blink_eyes = function(times) {
-        if(client.isConnected()) client.send(mqqtDefaultTopic,'BLINK,'+times);
+    ext.blink_eyes = function() {
+        if(client.isConnected()) client.send(mqqtDefaultTopic,'BLINK,1');
     }
 
     ext.talk = function(times) {
@@ -58,8 +58,8 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            [' ', 'Blink Eyes %n', 'blink_eyes',1],
-            [' ', '%m.openClose Mouth', 'mouth',0],
+            [' ', 'Blink Eyes', 'blink_eyes'],
+            [' ', '%m.openClose Mouth', 'mouth','Close'],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
