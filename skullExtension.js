@@ -12,26 +12,6 @@
     });
   }
 
-  function sendHTTP (url,postData){
-
-        var method = "POST";
-        var async = true;
-
-        var request = new XMLHttpRequest();
-
-        request.onload = function () {
-           var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-           var data = request.responseText; // Returned data, e.g., an HTML document.
-        }
-
-        request.open(method, url, async);
-
-        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        request.send(postData);
-  }
-
-   
-
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -46,10 +26,13 @@
     // stop waiting.
 
     ext.blink_eyes = function() {
-        var message = new Paho.MQTT.Message('BLINK,9');
-        message.destinationName = mqqtDefaultTopic;
         client.send(mqqtDefaultTopic,'BLINK,9');
     }
+
+    ext.talk = function(times) {
+        client.send(mqqtDefaultTopic,'JAW_MOTION,'+times+',1');
+    }
+
 
     ext.send_mqtt = function(topic,msg) {
         console.log("send"+topic+":"+msg);
@@ -66,7 +49,7 @@
             [' ', 'Blink Eyes', 'blink_eyes'],
             [' ', 'Mouth %m.openClose', 'wait_random'],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
-            [' ', 'Talk %n times', 'wait_random',5],
+            [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
         ], 
