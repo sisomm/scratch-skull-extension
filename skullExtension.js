@@ -27,21 +27,16 @@
     // stop waiting.
 
     ext.blink_eyes = function() {
-        console.log("blink");
         message = new Paho.MQTT.Message("BLINK,9");
         message.destinationName = mqqtDefaultTopic;
         client.send(message);
-        console.log("I blank");
-
     }
 
-        ext.send_mqtt = function(msg,topic) {
+    ext.send_mqtt = function(topic,msg) {
         console.log("send"+topic+":"+msg);
         message = new Paho.MQTT.Message(msg);
         message.destinationName = topic;
         client.send(message);
-        console.log("I blank");
-
     }
 
     ext.wait_random = function(callback) {
@@ -77,7 +72,7 @@
     var wsport = 8080 // port for above
     var client = new Paho.MQTT.Client(wsbroker, wsport,
         "myclientid_" + parseInt(Math.random() * 100, 10));
-    var mqqtDefaultTopic='/home/sisomm';
+    var mqqtDefaultTopic="/scratch/sisomm";
     
     client.onConnectionLost = function (responseObject) {
         console.log("connection lost: " + responseObject.errorMessage);
