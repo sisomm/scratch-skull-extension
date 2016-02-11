@@ -38,6 +38,14 @@
         client.send(topic,msg);
     }
 
+    ext.isConnected=function(){
+        if(client.isConnected){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
 
     // Block and block menu descriptions
     var descriptor = {
@@ -48,6 +56,7 @@
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
+            ['R', 'Connected','isConnected'],
         ], 
         menus: {
             openClose:['Open','Close'],
