@@ -35,10 +35,6 @@
 
 
     ext.send_mqtt = function(topic,msg) {
-        console.log("send"+topic+":"+msg);
-        var message = new Paho.MQTT.Message(msg);
-        message.destinationName = topic;
-        //client.send(message);
         client.send(topic,msg);
     }
 
