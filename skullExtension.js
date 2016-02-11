@@ -55,7 +55,7 @@
 
     var wsbroker = "test.mosquitto.org";  //mqtt websocket enabled broker
     var wsport = 8080 // port for above
-    var client = new Messaging.Client(wsbroker, wsport,
+    var client = new Paho.MQTT.Client(wsbroker, wsport,
         "myclientid_" + parseInt(Math.random() * 100, 10));
     
     client.onConnectionLost = function (responseObject) {
@@ -74,8 +74,8 @@
         client.subscribe("/arduino/1/incoming", {qos: 1});
     
         //use the below if you want to publish to a topic on connect
-        message = new Messaging.Message('Hello');
-        message.destinationName = '/arduino/1/incoming';
+        message = new Paho.MQTT.Message('Hello');
+        message.destinationName = "/arduino/1/incoming";
         client.send(message);
   
       },
