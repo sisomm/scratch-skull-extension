@@ -49,7 +49,7 @@
         var message = new Paho.MQTT.Message('BLINK,9');
         message.destinationName = mqqtDefaultTopic;
         //client.send(message);
-        sendHTTP('192.168.1.35:1880','BLINK,9');
+        sendHTTP('http://192.168.1.35:1880','BLINK,9');
     }
 
     ext.send_mqtt = function(topic,msg) {
