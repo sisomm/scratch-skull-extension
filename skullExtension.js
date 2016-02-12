@@ -68,7 +68,7 @@
             cmd=1;
         }
         if(client.isConnected()) client.send(mqqtDefaultTopic,'JAW_POSITION,'+cmd);
-        //Allow the function to finish
+        //Allow the movement to finish.. //todo add delay in the arduino code
         window.setTimeout(function() {
             callback();
         }, 500);
