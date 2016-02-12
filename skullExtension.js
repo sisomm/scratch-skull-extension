@@ -62,19 +62,23 @@
         }
     }
 
-    ext.mouth = function(position){
+    ext.mouth = function(position,callback){
         var cmd =0;
         if(position=="Open") {
             cmd=1;
         }
         if(client.isConnected()) client.send(mqqtDefaultTopic,'JAW_POSITION,'+cmd);
+        //Allow the function to finish
+        window.setTimeout(function() {
+            callback();
+        }, 500);
     }
 
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
             [' ', 'Blink Eyes', 'blink_eyes'],
-            [' ', '%m.openClose Mouth', 'mouth','Close'],
+            ['w', '%m.openClose Mouth', 'mouth','Close'],
             [' ', 'Move Head to %n,%n', 'head',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye(s) %m.onOff', 'eyes','Both','On'],
