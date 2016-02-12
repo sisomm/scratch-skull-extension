@@ -34,7 +34,7 @@
     }
 
    ext.head = function(x,y) {
-         if(client.isConnected()) client.send(mqqtDefaultTopic,'SCRACH_MOVE,'+x+','+y+',10');
+         if(client.isConnected()) client.send(mqqtDefaultTopic,'SCRATCH_MOVE,'+x+','+y+',10');
     }
 
     ext.send_mqtt = function(topic,msg) {
