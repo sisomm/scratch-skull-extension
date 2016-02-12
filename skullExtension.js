@@ -47,6 +47,11 @@
     }
 
 
+    ext.eyes = function(eye,onoff){
+
+        // if(client.isConnected()) client.send(topic,msg);        
+    }
+
     ext.mouth = function(position){
         var cmd =0;
         if(position=="Open") {
@@ -62,13 +67,13 @@
             [' ', '%m.openClose Mouth', 'mouth','Close'],
             [' ', 'Move Head to %n,%n', 'wait_random',300,300],
             [' ', 'Talk %n times', 'talk',5],
-            [' ', '%m.whichEye Eye %m.onOff', 'wait_random'],
+            [' ', '%m.whichEye Eye %m.onOff', 'eyes','Both','On'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
             ['r', 'Connected','isConnected'],
         ], 
         menus: {
             openClose:['Open','Close'],
-            whichEye:['Left','Right'],
+            whichEye:['Both','Left','Right'],
             onOff:['On','Off']
         }
     };
