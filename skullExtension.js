@@ -33,6 +33,9 @@
          if(client.isConnected()) client.send(mqqtDefaultTopic,'JAW_MOTION,'+times+',1');
     }
 
+   ext.head = function(x,y) {
+         if(client.isConnected()) client.send(mqqtDefaultTopic,'SCRARCH_MOVE,'+x+','+y+',10');
+    }
 
     ext.send_mqtt = function(topic,msg) {
          if(client.isConnected()) client.send(topic,msg);
@@ -65,7 +68,7 @@
         blocks: [
             [' ', 'Blink Eyes', 'blink_eyes'],
             [' ', '%m.openClose Mouth', 'mouth','Close'],
-            [' ', 'Move Head to %n,%n', 'wait_random',300,300],
+            [' ', 'Move Head to %n,%n', 'head',300,300],
             [' ', 'Talk %n times', 'talk',5],
             [' ', '%m.whichEye Eye(s) %m.onOff', 'eyes','Both','On'],
             [' ', 'MQTT topic %s message %s','send_mqtt','/scratch/sisomm','Hello, World'],
