@@ -51,8 +51,15 @@
 
 
     ext.eyes = function(eye,onoff){
-
-        // if(client.isConnected()) client.send(topic,msg);        
+        if(!client.isConnected()) return;
+        var level=(onoff=="On" ? 1 :0);
+        if(eye=="Both"){
+            client.send(mqqtDefaultTopic,'LED,1,'level);
+            client.send(mqqtDefaultTopic,'LED,0,'level);
+        } else {
+            var whichEye=(eye=="Left"?0:1);
+            client.send(mqqtDefaultTopic,'LED,+'whichEye+','+level);
+        }
     }
 
     ext.mouth = function(position){
