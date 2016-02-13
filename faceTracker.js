@@ -84,7 +84,8 @@
       onSuccess: function () {
         console.log("mqtt connected");
         // Connection succeeded; subscribe to our topic, you can add multile lines of these
-        client.subscribe("/raspberry/1/face/#", {qos: 0});
+        client.subscribe("/raspberry/1/face/1/x", {qos: 0});
+        client.subscribe("/raspberry/1/face/1/y", {qos: 0});
     
         //use the below if you want to publish to a topic on connect
         message = new Paho.MQTT.Message('Hello');
