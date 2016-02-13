@@ -72,11 +72,9 @@
     
     client.onMessageArrived = function (message) {
         console.log(message.destinationName, ' -- ', message.payloadString);
-        if(message.destinationName.substr(message.destinationName.length-1)=="x"){
-            faceTrackX=parseInt(message.payloadString);
-        } else {
-            faceTrackY=parseInt(message.payloadString);
-        }
+        var parts=message.payloadString.split(",");
+        faceTrackX=parseInt(parts[0]);
+        faceTrackY=parseInt(parts[1]);
     };
     
     var options = {
@@ -84,8 +82,7 @@
       onSuccess: function () {
         console.log("mqtt connected");
         // Connection succeeded; subscribe to our topic, you can add multile lines of these
-        client.subscribe("/raspberry/1/face/1/x", {qos: 0});
-        client.subscribe("/raspberry/1/face/1/y", {qos: 0});
+        client.subscribe("/raspberry/1/face/1", {qos: 0});
     
         //use the below if you want to publish to a topic on connect
         message = new Paho.MQTT.Message('Hello');
