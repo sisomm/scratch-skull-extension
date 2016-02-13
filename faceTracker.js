@@ -48,7 +48,6 @@
             ['r', 'Face Y','faceY'],
             ['r', 'Connected','isConnected'],
         ] 
-        }
     };
 
     // Register the extension
