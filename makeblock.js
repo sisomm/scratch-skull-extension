@@ -397,7 +397,7 @@
             ["r", "analog pin %n ", "doARead", "0"],
             ["", "set digital pin %n output %n", "doDWrite", "13", "High"],
             ["", "set analog pin %n output %n", "doAWrite", "0", 512],
-            ["", "set serial port %m.serialport","setSerialPort" "/dev/cu.wchusbserial1410"]
+            ["", "set serial port %m.serialport","setSerialPort","/dev/cu.wchusbserial1410"]
         ],
         menus: {
 			"normalPort":["Port3","Port4","Port5","Port6","Port7","Port8"],
