@@ -328,6 +328,10 @@
         device.send(cc.buffer);
     };
 
+    ext.setSerialPort = function(port){
+        ext._deviceConnected(port);
+    }
+
     ext._deviceConnected = function(dev) {
 		console.log("_deviceConnected:",device);
         if(device) return;
@@ -392,7 +396,8 @@
             ["b", "digital pin %n ", "doDRead", "13"],
             ["r", "analog pin %n ", "doARead", "0"],
             ["", "set digital pin %n output %n", "doDWrite", "13", "High"],
-            ["", "set analog pin %n output %n", "doAWrite", "0", 512]
+            ["", "set analog pin %n output %n", "doAWrite", "0", 512],
+            ["", "set serial port %m.serialport","setSerialPort" "/dev/cu.wchusbserial1410"]
         ],
         menus: {
 			"normalPort":["Port3","Port4","Port5","Port6","Port7","Port8"],
@@ -408,7 +413,8 @@
 			"Axis":["X-Axis","Y-Axis"],
 			"GyroAxis":["X-Axis","Y-Axis","Z-Axis"],
 			"digital":["Low","High"],
-			"switch":["Off","On"]
+			"switch":["Off","On"],
+            "serialport":["/dev/cu.wchusbserial1410"]
         },
     url: 'http://www.makeblock.cc'
     };
