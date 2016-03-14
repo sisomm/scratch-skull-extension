@@ -96,10 +96,10 @@
     ScratchExtensions.register('Keith Richards', descriptor, ext);
     loadMQTT();
 
- //  var wsbroker = "test.mosquitto.org";  //mqtt websocket enabled broker
-     var wsbroker = "192.168.1.29";  //mqtt websocket enabled broker
- //   var wsport = 8080 // port for above
-    var wsport = 9000 // port for above
+   var wsbroker = "test.mosquitto.org";  //mqtt websocket enabled broker
+ //    var wsbroker = "192.168.1.29";  //mqtt websocket enabled broker
+    var wsport = 8080 // port for above
+ //   var wsport = 9000 // port for above
     var client = new Paho.MQTT.Client(wsbroker, wsport,
         "myclientid_" + parseInt(Math.random() * 100, 10));
     var mqqtDefaultTopic="/scratch/sisomm";
