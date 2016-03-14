@@ -97,7 +97,7 @@
     loadMQTT();
 
    var wsbroker = "test.mosquitto.org";  //mqtt websocket enabled broker
-    var wsport = 8080 // port for above
+    var wsport = 8080; // port for above
     var client = new Paho.MQTT.Client(wsbroker, wsport,
         "myclientid_" + parseInt(Math.random() * 100, 10));
     var mqqtDefaultTopic="/scratch/sisomm";
